@@ -1,0 +1,37 @@
+#!/bin/sh
+
+# Supprimer les paquets en cache
+# ------------------------------
+
+# Supprimer les .deb des paquets installés :
+sudo apt-get clean
+
+# Ne supprimer que les .deb correspondant aux paquets désinstallés :
+sudo apt-get autoclean
+
+# Supprimer les fichiers de configuration obsolètes
+# -------------------------------------------------
+
+# Bien qu'il n'y ait pas de méthode intégrée pour supprimer toutes vos informations de configuration de vos paquets supprimés, vous pouvez supprimer toutes les données de configuration de chaque paquet supprimé avec
+
+#sudo dpkg -l | grep '^rc' | awk '{print $2}' | xargs dpkg --purge
+
+# SYNAPTIC
+# ========
+
+# Supprimer les "Résidus de configuration"
+# ----------------------------------------
+
+# 1) les paquets "locaux ou obsolètes" sont ceux qui n'apparaissent plus dans les dépots; par exemple, si tu ajoutes un dépot tiers, que tu installes un paquet de ce dépot, puis que tu désactives le dépot, ce paquet que tu viens d'installer apparaitra dans "locaux ou obsolètes"; ça concerne aussi les DEB que tu as téléchargé et installé manuellement.
+
+# les paquets "installés manuellement" sont ceux dont tu as réellement demandé l'installation (mais pas que toi, ça concerne aussi les paquets installés par défaut, puisqu'ils sont voulu par le développeur), par opposition à ceux qui sont installés par le jeu des dépendances. par exemple, si tu installes "frozen-bubble" il apparait dans "installés manuellement" mais pas "frozen-bubble-data" qui lui s'est installé par dépendance.
+
+# 2) Paquet" pouvant être suprimé"
+
+# ce sont ceux dont aucun autre paquet ne dépend, mais ça ne veut pas dire qu'ils sont inutiles, ça veut juste dire que si tu les supprimes, ça n'entrainera pas d'autres suppressions. les paquets que tu cites pourraient être supprimés; par exemple, "module-assistant" sert à compiler plus facilement les sources d'un modules et à le mettre en paquet DEB (d'où debhelper); si l'un de tes modules nécessite d'être compilé, tu auras besoin de ces paquets au prochain changement de noyau.
+
+# 3) Résidus de configuration
+
+# ça, tu l'as deviné, ce sont les fichiers de configuration de paquets qui ne sont plus installés, mais ça ne concerne que les fichiers du système; en clair, un logiciel a sa configuration stockée dans le répertoire système /usr/share. si tu lances ce logiciel, et que tu le configures, il placera de nouveaux fichiers dans ton home.
+# si tu supprimes les résidus de configuration dans Synaptic (on peut les sélectionner tous d'un coup en maintenant Shift tout en cliquant sur le premier de la liste et le dernier), ça n'enlèvera pas les fichiers de configuration personnalisés qui sont dans ton home: pas d'inquiétude à avoir pour Wine donc.
+

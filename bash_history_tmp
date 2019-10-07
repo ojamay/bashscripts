@@ -1,0 +1,66 @@
+man apt-get autoremove
+man deborphan
+sudo apt-get install deborphan
+man deborphan
+deborphan
+sudo apt-get update
+sudo apt-get clean
+man apt-get
+sudo apt-get -s autoremove
+
+./clean_temp_files.sh 
+dpkg -l | grep "^rc"
+./clean_packages.sh 
+
+find ~/.thumbnails -type f -atime +1
+find ~/.cache/thumbnails -type f -atime +1
+
+locate nfs
+
+sudo snap connect nextcloud-client:password-manager-service
+snap connect nextcloud-client:password-manager-service
+sudo snap connect nextcloud-client:password-manager-service
+snap connect nextcloud-client:password-manager-service
+sudo snap connect nextcloud-client:password-manager-service
+
+sudo snap refresh
+sudo snap list
+sudo snap remove wine-platform 
+
+sudo find / -name "*firefox*"
+sudo snap list
+sudo snap remove firefox
+sudo find / -name "*firefox*"
+
+less /etc/NetworkManager/NetworkManager.conf 
+sudo sed -i 's/dns=dnsmasq/#dns=dnsmasq/g' /etc/NetworkManager/NetworkManager.conf
+sudo service network-manager restart
+sudo service unbound stop
+sudo /etc/init.d/dns-clean restart
+sudo unbound -c /etc/unbound/unbound.conf
+sudo unbound-anchor -a "/var/lib/unbound/root.key"
+sudo service unbound start
+nmcli dev show | grep DNS
+sudo service unbound restart
+vim /etc/unbound/unbound.conf
+vi /etc/unbound/unbound.conf
+sudo vi /etc/unbound/unbound.conf
+sudo service unbound restart
+exit
+unbound -v
+unbound -h
+unbound -hv
+man unbound
+
+blkid
+lsblk
+
+mlabel -i /dev/mmcblk0p1 ::SOR
+sudo mlabel -i /dev/mmcblk0p1 ::SOR
+
+sudo mkfs.vfat -F 32 -n SOR /dev/mmcblk0p1 
+
+sudo mv XPS_9370_1.9.0.exe /boot/efi/
+
+sudo e2label /dev/sda1 "SUIORYU"
+
